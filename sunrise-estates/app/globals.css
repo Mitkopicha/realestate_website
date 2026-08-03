@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+:root {
+  --charcoal: #14181d;
+  --panel: #1c232b;
+  --panel-raised: #212a33;
+  --bone: #f5f3ee;
+  --steel: #8b95a1;
+  --steel-dim: #5c6672;
+  --brass: #b08d57;
+  --brass-dim: #8a6f45;
+  --hairline: #3a4a5c;
+}
+
+@theme inline {
+  --color-charcoal: var(--charcoal);
+  --color-panel: var(--panel);
+  --color-panel-raised: var(--panel-raised);
+  --color-bone: var(--bone);
+  --color-steel: var(--steel);
+  --color-steel-dim: var(--steel-dim);
+  --color-brass: var(--brass);
+  --color-brass-dim: var(--brass-dim);
+  --color-hairline: var(--hairline);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+:focus-visible {
+  outline: 1px solid var(--brass);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
