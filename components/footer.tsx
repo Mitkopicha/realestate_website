@@ -36,6 +36,9 @@ export default function Footer() {
                   Contact
                 </Link>
               </li>
+              <li><Link href="/consultation" className="hover:text-bone">
+  Consultation
+</Link></li>
             </ul>
           </div>
 
