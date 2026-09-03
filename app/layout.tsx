@@ -24,9 +24,8 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sunrise Estates | Bulgarian Coastal Assets",
-  description:
-    "Curated seaside estates on the Bulgarian coast, presented for Scandinavian investors.",
+  title: "Nordic Capital Advisors | Direct Acquisition & Advisory",
+  description: "Direct real estate acquisition and advisory services in Bulgaria.",
 };
 
 export default function RootLayout({
