@@ -13,6 +13,7 @@ const residentialProperties = [
       "All-Inclusive Investor Package: Fully finished studio in a world-class year-round gated golf & thermal SPA resort. Includes clean title deed, all legal/notary fees paid, and complimentary 3-day inspection trip refund.",
     year: "2010",
     maintenance: "€200 / year",
+    externalUrl: "https://www.imot.bg/obiava-1a178366252447743-prodava-ednostaen-apartament-oblast-blagoevgrad-gr-bansko",
   },
 ];
 
@@ -62,12 +63,24 @@ export default function ResidentialPage() {
               </div>
             </div>
 
-            <Link
-  href={`/contact?property=${item.id}`}
-  className="inline-block w-full text-center py-2.5 border border-brass/50 text-brass hover:bg-brass hover:text-charcoal transition font-mono text-xs uppercase tracking-widest"
->
-  Request Info Packet
-</Link>
+            <div className="space-y-3">
+              {item.externalUrl && (
+                <a
+                  href={item.externalUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full text-center py-2 border border-hairline text-steel-dim hover:text-bone hover:border-steel transition font-mono text-[11px] uppercase tracking-wider"
+                >
+                  View Direct Reference (imot.bg) ↗
+                </a>
+              )}
+              <Link
+                href={`/contact?property=${item.id}`}
+                className="inline-block w-full text-center py-2.5 border border-brass/50 text-brass hover:bg-brass hover:text-charcoal transition font-mono text-xs uppercase tracking-widest"
+              >
+                Request Info Packet
+              </Link>
+            </div>
           </div>
         ))}
       </div>

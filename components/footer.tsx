@@ -47,7 +47,7 @@ export default function Footer() {
 
               <div className="mt-6 rounded border border-brass/20 bg-brass/5 p-3 text-xs text-steel">
                 <p className="text-bone font-medium">
-                 Fee Deduction Guarantee
+                  Fee Deduction Guarantee
                 </p>
                 <p className="mt-1 text-steel-dim">
                   The €2,000 package fee is 100% deductible from the final property price upon closing the deal.
@@ -110,17 +110,17 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/residential" className="hover:text-bone">
+                  Residential
+                </Link>
+              </li>
+              <li>
                 <Link href="/about" className="hover:text-bone">
                   About
                 </Link>
               </li>
               <li>
                 <Link href="/contact" className="hover:text-bone">
-                  Contact & Consultation
-                </Link>
-              </li>
-              <li>
-                <Link href="/consultation" className="hover:text-bone">
                   Contact & Consultation
                 </Link>
               </li>
@@ -134,9 +134,12 @@ export default function Footer() {
             <ul className="mt-3 space-y-2 font-mono text-xs">
               <li className="text-bone">Burgas & Sofia, Bulgaria</li>
               <li>
-             <a href="mailto:office@nordic-capital-advisors.com" className="...">
-  office@nordic-capital-advisors.com
-</a>
+                <a
+                  href="mailto:office@nordic-capital-advisors.com"
+                  className="hover:text-bone text-brass underline"
+                >
+                  office@nordic-capital-advisors.com
+                </a>
               </li>
               <li>
                 Borislav:{" "}
@@ -145,12 +148,11 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                Dimitar:{" "}
+                Miroslav:{" "}
                 <a href="tel:+359890304010" className="hover:text-bone">
                   +359 89 030 4010
                 </a>
               </li>
-              
             </ul>
           </div>
         </div>

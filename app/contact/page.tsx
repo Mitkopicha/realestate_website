@@ -8,7 +8,7 @@ export default function ContactPage() {
     name: "",
     email: "",
     phone: "",
-    contactPerson: "Dimitar Dutchev (English)",
+    contactPerson: "Miroslav (English & International)",
     message: "",
   });
 
@@ -61,7 +61,7 @@ export default function ContactPage() {
               {/* 1. Bulgarian Language Desk (Borislav) */}
               <div>
                 <p className="font-mono text-xs uppercase tracking-widest text-brass">
-                  Bulgarian & English Language Desk
+                  Bulgarian Language Desk
                 </p>
                 <p className="mt-1 font-display text-lg text-bone">Borislav Vasilev</p>
                 <p className="font-mono text-sm text-steel">
@@ -75,12 +75,12 @@ export default function ContactPage() {
                 </p>
               </div>
 
-              {/* 2. English & International Desk (Dimitar) */}
+              {/* 2. English & International Desk (Miroslav) */}
               <div className="border-t border-hairline/40 pt-4">
                 <p className="font-mono text-xs uppercase tracking-widest text-brass">
                   English & International Desk
                 </p>
-                <p className="mt-1 font-display text-lg text-bone">Dimitar Dutchev</p>
+                <p className="mt-1 font-display text-lg text-bone">Miroslav</p>
                 <p className="font-mono text-sm text-steel">
                   Tel:{" "}
                   <a href="tel:+359890304010" className="text-bone hover:text-brass transition-colors">
@@ -178,7 +178,7 @@ export default function ContactPage() {
                       value={formData.contactPerson}
                       onChange={(e) => setFormData({ ...formData, contactPerson: e.target.value })}
                     >
-                      <option value="Dimitar Dutchev (English)">Dimitar Dutchev (English)</option>
+                      <option value="Miroslav (English & International)">Miroslav (English & International)</option>
                       <option value="Borislav Vasilev (Bulgarian)">Borislav Vasilev (Bulgarian)</option>
                     </select>
                   </div>
