@@ -13,9 +13,9 @@ const featuredAssets = [
     description:
       "Mega-scale land package for a premium gated residential community or longevity village. Active final zoning phase for full regulation (UPI) with direct planned highway access.",
     bullets: [
-      "260,000 m² unified core layout (112k m² & 133k m² plots)[cite: 1]",
-      "Active final zoning phase with minimal municipal conversion fees[cite: 1]",
-      "Direct planned access to Malo Buchino highway junction[cite: 1]",
+      "260,000 m² unified core layout (112k m² & 133k m² plots)",
+      "Active final zoning phase with minimal municipal conversion fees",
+      "Direct planned access to Malo Buchino highway junction",
     ],
   },
   {
@@ -28,11 +28,11 @@ const featuredAssets = [
     size: "80,015 m²",
     slug: "razlog-valley-master-plot",
     description:
-      "Ready-to-develop mountain residential land adjacent to an 18-hole championship golf course, subdivided into 91 independent villa plots with utilities on-site[cite: 1].",
+      "Ready-to-develop mountain residential land adjacent to an 18-hole championship golf course, subdivided into 91 independent villa plots with utilities on-site.",
     bullets: [
-      "Fully regulated urban land (UPI) allowing up to 64,000 m² GBA[cite: 1]",
-      "Subdivided into 91 independent individual villa building plots[cite: 1]",
-      "Essential electricity and water grid connections available on-site[cite: 1]",
+      "Fully regulated urban land (UPI) allowing up to 64,000 m² GBA",
+      "Subdivided into 91 independent individual villa building plots",
+      "Essential electricity and water grid connections available on-site",
     ],
   },
   {
@@ -45,11 +45,11 @@ const featuredAssets = [
     size: "1,200 m² Built + Land",
     slug: "banya-thermal-villa-resort",
     description:
-      "Operational upscale boutique thermal resort with 7 completed luxury villas (Act 16), a private mineral water pipeline, and active 15-year exploitation concession[cite: 1].",
+      "Operational upscale boutique thermal resort with 7 completed luxury villas (Act 16), a private mineral water pipeline, and active 15-year exploitation concession.",
     bullets: [
-      "7 completed luxury villas with individual private mineral pools[cite: 1]",
-      "Secured long-term 15-year thermal mineral water exploitation concession[cite: 1]",
-      "Immediate expansion potential for an additional 1,000 m² GBA[cite: 1]",
+      "7 completed luxury villas with individual private mineral pools",
+      "Secured long-term 15-year thermal mineral water exploitation concession",
+      "Immediate expansion potential for an additional 1,000 m² GBA",
     ],
   },
   {
@@ -62,11 +62,11 @@ const featuredAssets = [
     size: "1,800 m² Built (33 Keys)",
     slug: "bansko-alpine-hotel",
     description:
-      "Near-complete wellness hotel asset featuring 33 keys, operational elevator, indoor SPA with swimming pool, restaurant, and lobby bar[cite: 1].",
+      "Near-complete wellness hotel asset featuring 33 keys, operational elevator, indoor SPA with swimming pool, restaurant, and lobby bar.",
     bullets: [
-      "33 keys: 25 double rooms, 4 luxury maisonettes, and 4 studios[cite: 1]",
-      "Indoor SPA zone with pool, sauna, restaurant, and conference room[cite: 1]",
-      "Secured off-site valet parking lot within 300 meters[cite: 1]",
+      "33 keys: 25 double rooms, 4 luxury maisonettes, and 4 studios",
+      "Indoor SPA zone with pool, sauna, restaurant, and conference room",
+      "Secured off-site valet parking lot within 300 meters",
     ],
   },
   {
@@ -79,11 +79,11 @@ const featuredAssets = [
     size: "9,000 m² Land",
     slug: "sapareva-banya-commercial-plot",
     description:
-      "Regulated commercial plot in Europe's premier 103°C geyser thermal resort, priority-listed for municipal mineral water network connections[cite: 1].",
+      "Regulated commercial plot in Europe's premier 103°C geyser thermal resort, priority-listed for municipal mineral water network connections.",
     bullets: [
-      "Fully Regulated Urban Commercial Land (UPI)[cite: 1]",
-      "Directly adjacent to operational mineral water pool complexes[cite: 1]",
-      "Ideal for medical spa hotel or luxury longevity clinic[cite: 1]",
+      "Fully Regulated Urban Commercial Land (UPI)",
+      "Directly adjacent to operational mineral water pool complexes",
+      "Ideal for medical spa hotel or luxury longevity clinic",
     ],
   },
   {
@@ -96,14 +96,15 @@ const featuredAssets = [
     size: "4,000 m² Built / 3,374 m² Plot",
     slug: "shipkovo-balneo-sanatorium",
     description:
-      "Massive solid-structure sanatorium building on main avenue, directly adjacent to active healing thermal springs[cite: 1]. Value-add medical spa opportunity[cite: 1].",
+      "Massive solid-structure sanatorium building on main avenue, directly adjacent to active healing thermal springs. Value-add medical spa opportunity.",
     bullets: [
-      "4,000 m² solid structure on a 3,374 m² regulated plot[cite: 1]",
-      "Proximity to abundant mineral water thermal springs[cite: 1]",
-      "Includes contractual option to acquire 5,000 m² adjacent expansion land[cite: 1]",
+      "4,000 m² solid structure on a 3,374 m² regulated plot",
+      "Proximity to abundant mineral water thermal springs",
+      "Includes contractual option to acquire 5,000 m² adjacent expansion land",
     ],
   },
 ];
+
 
 export default function HomePage() {
   return (
