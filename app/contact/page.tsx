@@ -45,7 +45,7 @@ export default function ContactPage() {
               {/* 1. Bulgarian Language Desk (Borislav) */}
               <div>
                 <p className="font-mono text-xs uppercase tracking-widest text-brass">
-                  Bulgarian Language Desk
+                  Bulgarian & English Language Desk
                 </p>
                 <p className="mt-1 font-display text-lg text-bone">Borislav Vasilev</p>
                 <p className="font-mono text-sm text-steel">

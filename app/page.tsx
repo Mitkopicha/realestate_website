@@ -52,6 +52,57 @@ const featuredAssets = [
       "Immediate expansion potential for an additional 1,000 m² GBA",
     ],
   },
+  {
+    id: "SE-04",
+    category: "Hospitality Conversion",
+    title: "Project 4: Black Sea Coast Boutique Hotel",
+    location: "Sozopol / Black Sea Coast",
+    price: "€2,400,000",
+    priceNote: "Excl. VAT",
+    size: "3,500 m² Built",
+    slug: "black-sea-boutique-hotel",
+    description:
+      "Prime coastal hospitality asset with direct sea access, ideal for luxury boutique conversion or branded wellness resort operations.",
+    bullets: [
+      "Prime frontline position with unobstructed sea views",
+      "Existing Act 16 structure with immediate renovation potential",
+      "Private parking and outdoor amenity zone",
+    ],
+  },
+  {
+    id: "SE-05",
+    category: "Thermal Mineral Estate",
+    title: "Project 5: Velingrad Thermal SPA Development",
+    location: "Velingrad / Rhodope Mountains",
+    price: "€3,100,000",
+    priceNote: "Excl. VAT",
+    size: "45,000 m² Land",
+    slug: "velingrad-thermal-spa-development",
+    description:
+      "High-yield thermal spa land development opportunity in the spa capital of the Balkans, featuring active mineral water springs on boundary.",
+    bullets: [
+      "Direct proximity to high-temperature mineral water source",
+      "Approved master plan for 5-star medical & thermal resort",
+      "Year-round tourism demand with high occupancy potential",
+    ],
+  },
+  {
+    id: "SE-06",
+    category: "Commercial & Logistics Park",
+    title: "Project 6: Maritsa Industrial Logistics Hub",
+    location: "Plovdiv Industrial Zone",
+    price: "€4,500,000",
+    priceNote: "Excl. VAT",
+    size: "120,000 m² Land",
+    slug: "maritsa-industrial-logistics-hub",
+    description:
+      "Strategic industrial and commercial parcel situated right on the Trakia highway corridor, ideal for regional distribution or light manufacturing.",
+    bullets: [
+      "Direct Trakia Highway (A1) access and frontage",
+      "Full industrial utility capacity (high-voltage electricity, gas)",
+      "Regulated zoning for industrial and commercial storage",
+    ],
+  },
 ];
 
 export default function HomePage() {
@@ -89,7 +140,7 @@ export default function HomePage() {
       <section className="border-b border-hairline/60 bg-charcoal/50 py-10 px-6">
         <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
           <div>
-            <div className="font-display text-3xl md:text-4xl text-brass">6</div>
+            <div className="font-display text-3xl md:text-4xl text-brass">{featuredAssets.length}</div>
             <div className="font-mono text-xs uppercase text-steel mt-1">Institutional Assets</div>
           </div>
           <div>
@@ -114,14 +165,11 @@ export default function HomePage() {
             <span className="font-mono text-xs uppercase tracking-widest text-brass block mb-1">
               Curated Selection
             </span>
-            <h2 className="font-display text-2xl md:text-3xl text-bone">Featured Assets</h2>
+            <h2 className="font-display text-2xl md:text-3xl text-bone">All Featured Assets</h2>
           </div>
-          <Link
-            href="/properties"
-            className="font-mono text-xs uppercase tracking-widest text-brass hover:text-bone transition"
-          >
-            View All (6) →
-          </Link>
+          <span className="font-mono text-xs uppercase tracking-widest text-brass">
+            Showing All ({featuredAssets.length})
+          </span>
         </div>
 
         <div className="space-y-8">
