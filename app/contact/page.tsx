@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 export default function ContactPage() {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -12,9 +12,25 @@ export default function ContactPage() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setStatus("loading");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        setStatus("success");
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      setStatus("error");
+    }
   };
 
   return (
@@ -82,10 +98,10 @@ export default function ContactPage() {
                   Official Inquiries Email
                 </p>
                 <a
-                  href="mailto:borislav.m.vasilev@gmail.com"
+                  href="mailto:office@nordic-capital-advisors.com"
                   className="font-mono text-sm text-brass underline hover:opacity-80 block mt-1"
                 >
-                  borislav.m.vasilev@gmail.com
+                  office@nordic-capital-advisors.com
                 </a>
               </div>
             </div>
@@ -100,7 +116,7 @@ export default function ContactPage() {
               Fill out the form below to reach us directly.
             </p>
 
-            {submitted ? (
+            {status === "success" ? (
               <div className="mt-8 border border-brass/40 bg-charcoal/60 p-6 text-center">
                 <p className="font-display text-xl text-bone">Message Sent</p>
                 <p className="mt-2 text-sm text-steel">
@@ -174,6 +190,7 @@ export default function ContactPage() {
                   </label>
                   <textarea
                     rows={4}
+                    required
                     placeholder="Tell us how we can help you..."
                     className="mt-2 w-full border border-hairline bg-charcoal p-3 font-mono text-sm text-bone focus:border-brass focus:outline-none resize-none"
                     value={formData.message}
@@ -183,10 +200,17 @@ export default function ContactPage() {
 
                 <button
                   type="submit"
-                  className="w-full border border-brass bg-brass py-4 font-mono text-xs uppercase tracking-widest text-charcoal transition-opacity hover:opacity-90"
+                  disabled={status === "loading"}
+                  className="w-full border border-brass bg-brass py-4 font-mono text-xs uppercase tracking-widest text-charcoal transition-opacity hover:opacity-90 disabled:opacity-50"
                 >
-                  Send Inquiry
+                  {status === "loading" ? "Sending..." : "Send Inquiry"}
                 </button>
+
+                {status === "error" && (
+                  <p className="text-red-400 font-mono text-xs text-center mt-2">
+                    Failed to send message. Please try again or email office@nordic-capital-advisors.com directly.
+                  </p>
+                )}
               </form>
             )}
           </div>

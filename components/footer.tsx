@@ -134,12 +134,9 @@ export default function Footer() {
             <ul className="mt-3 space-y-2 font-mono text-xs">
               <li className="text-bone">Burgas & Sofia, Bulgaria</li>
               <li>
-                <a
-                  href="mailto:borislav.m.vasilev@gmail.com"
-                  className="hover:text-bone text-brass underline"
-                >
-                  borislav.m.vasilev@gmail.com
-                </a>
+             <a href="mailto:office@nordic-capital-advisors.com" className="...">
+  office@nordic-capital-advisors.com
+</a>
               </li>
               <li>
                 Borislav:{" "}
