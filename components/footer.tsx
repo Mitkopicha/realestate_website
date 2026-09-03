@@ -7,7 +7,7 @@ export default function Footer() {
         {/* Brand & Info */}
         <div>
           <Link href="/" className="font-display text-xl text-bone">
-            Sunrise Estates
+            Nordic Capital Advisors
           </Link>
           <p className="mt-2 text-xs text-steel-dim max-w-sm">
             Commercial real estate, thermal spring developments, and resort conversions in Bulgaria for Nordic & international investors.
@@ -74,7 +74,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-hairline/40 mx-auto max-w-6xl px-6 py-6 text-center md:text-left font-mono text-[11px] text-steel-dim flex flex-col md:flex-row justify-between gap-2">
-        <p>© {new Date().getFullYear()} Sunrise Estates. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} Nordic Capital Advisors. All rights reserved.</p>
         <p>Registered in the Republic of Bulgaria</p>
       </div>
     </footer>
