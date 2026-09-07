@@ -41,7 +41,7 @@ export default function PropertyConsultationPage() {
       <div className="border-b border-hairline/60 pb-10">
 
         <p className="font-mono text-xs uppercase tracking-[0.2em] text-brass">
-          Sunrise Estates Bulgaria
+          Nordic Capital Advisors
         </p>
 
         <h1 className="mt-4 font-display text-3xl text-bone md:text-5xl">

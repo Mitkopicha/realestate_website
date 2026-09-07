@@ -43,7 +43,7 @@ const investmentAssets = [
     bullets: [
       "7 completed 2-story luxury villas (Act 16 permits) with individual private mineral pool layouts",
       "Secured, newly renewed 15-year thermal mineral water exploitation concession & private pipeline",
-      "Vacant regulated land permits immediate construction of an additional 1,000 m² GBA",
+      "Vacant regulated land permits immediate construction of five additional luxury villas on a further 1,000 m² GBA",
     ],
   },
   {
@@ -73,6 +73,7 @@ const investmentAssets = [
     bullets: [
       "Fully Regulated Urban Commercial Land (UPI) designed for a medical spa hotel or longevity clinic",
       "Located in Europe's premier 103°C natural geyser resort, next to active mineral complexes",
+      "Electricity and water connections already available on-site",
       "Priority-listed for the upcoming municipal mineral water pipe network connection",
     ],
   },

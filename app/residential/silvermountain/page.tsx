@@ -3,49 +3,59 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-// Array with 6 valid image assets (res-2 removed completely)
 const images = [
   {
-    src: "/residential/res-3.jpg",
-    alt: "Pirin Golf & Thermal SPA Resort exterior",
+    src: "/residential/res-1.jpg",
+    alt: "Silver Mountain Resort apartment",
   },
   {
-    src: "/residential/res-1.jpg",
-    alt: "Alpine Studio apartment living space",
+    src: "/residential/res-2.jpg",
+    alt: "Silver Mountain Resort interior",
+  },
+  {
+    src: "/residential/res-3.jpg",
+    alt: "Silver Mountain Resort exterior",
   },
   {
     src: "/residential/res-4.jpg",
-    alt: "Alpine Studio bathroom",
+    alt: "Silver Mountain Resort bathroom",
   },
   {
     src: "/residential/res-5.jpg",
-    alt: "Alpine Studio main living area",
+    alt: "Silver Mountain Resort living area",
   },
   {
     src: "/residential/res-6.jpg",
-    alt: "Alpine Studio bedroom zone",
+    alt: "Silver Mountain Resort bedroom",
   },
   {
     src: "/residential/res-7.jpg",
-    alt: "Alpine Studio balcony view",
+    alt: "Silver Mountain Resort apartment view",
   },
 ];
 
-export default function PirinGolfAlpineStudioPage() {
+export default function SilverMountainPage() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
-  const closeGallery = () => setSelectedImage(null);
+  const closeGallery = () => {
+    setSelectedImage(null);
+  };
 
   const previousImage = () => {
     setSelectedImage((current) => {
       if (current === null) return null;
-      return (current - 1 + images.length) % images.length;
+
+      return (
+        (current - 1 + images.length) %
+        images.length
+      );
     });
   };
 
   const nextImage = () => {
     setSelectedImage((current) => {
       if (current === null) return null;
+
       return (current + 1) % images.length;
     });
   };
@@ -54,12 +64,21 @@ export default function PirinGolfAlpineStudioPage() {
     if (selectedImage === null) return;
 
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") closeGallery();
-      if (event.key === "ArrowLeft") previousImage();
-      if (event.key === "ArrowRight") nextImage();
+      if (event.key === "Escape") {
+        closeGallery();
+      }
+
+      if (event.key === "ArrowLeft") {
+        previousImage();
+      }
+
+      if (event.key === "ArrowRight") {
+        nextImage();
+      }
     };
 
     window.addEventListener("keydown", handleKeyDown);
+
     const originalOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
@@ -71,7 +90,9 @@ export default function PirinGolfAlpineStudioPage() {
 
   return (
     <main className="min-h-screen bg-charcoal text-bone">
-      {/* HERO SECTION */}
+      {/* =========================================================
+          HERO
+      ========================================================== */}
       <section className="px-6 pb-12 pt-12 md:pb-16 md:pt-16 lg:px-16 lg:pt-20">
         <div className="mx-auto max-w-6xl">
           <Link
@@ -83,17 +104,12 @@ export default function PirinGolfAlpineStudioPage() {
 
           <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_320px] lg:items-end">
             <div>
-              <div className="flex flex-wrap items-center gap-3">
-                <span className="font-mono text-xs uppercase tracking-[0.2em] text-brass">
-                  PREMIUM PACKAGE · RES-01
-                </span>
-                <span className="border border-brass/40 bg-brass/10 px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-brass">
-                  Available / Fully Managed
-                </span>
-              </div>
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-brass">
+                RES-01 · Residential
+              </p>
 
               <h1 className="mt-4 max-w-4xl font-display text-4xl leading-[1.02] text-bone md:text-5xl lg:text-6xl">
-                Alpine Studio in &quot;Pirin Golf &amp; Thermal SPA Resort&quot;
+                Silver Mountain Resort
               </h1>
 
               <p className="mt-4 font-mono text-xs uppercase tracking-widest text-steel">
@@ -103,30 +119,32 @@ export default function PirinGolfAlpineStudioPage() {
               <div className="mt-6 h-px w-12 bg-brass" />
 
               <p className="mt-6 max-w-2xl text-sm leading-7 text-steel md:text-base">
-                An all-inclusive investor package featuring a 33 sq.m (net built area)
-                Alpine studio on the 3rd floor. Monolithic high-efficiency brick build (2010)
-                located in a world-class golf and thermal SPA resort.
+                A furnished 33 m² apartment within Silver Mountain Resort in
+                Bansko, positioned in a gated complex with swimming pool,
+                security and controlled access.
               </p>
             </div>
 
             <div className="border-l border-hairline/60 pl-6 lg:text-right">
               <p className="font-mono text-[10px] uppercase tracking-widest text-steel-dim">
-                Package Price
+                Asking Price
               </p>
 
               <p className="mt-2 font-display text-3xl text-brass">
-                €64,990
+                €59,990
               </p>
 
               <p className="mt-1 font-mono text-[10px] uppercase tracking-widest text-steel-dim">
-                All-Inclusive Investor Package · €1,969 / m²
+                €1,818 / m² · No VAT
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* PRIMARY FEATURED IMAGE */}
+      {/* =========================================================
+          LARGE FEATURE IMAGE
+      ========================================================== */}
       <section className="px-6 lg:px-16">
         <div className="mx-auto max-w-6xl">
           <button
@@ -145,7 +163,7 @@ export default function PirinGolfAlpineStudioPage() {
             <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
               <div>
                 <p className="font-mono text-[10px] uppercase tracking-widest text-white/70">
-                  Pirin Golf &amp; Thermal SPA Resort
+                  Silver Mountain Resort
                 </p>
 
                 <p className="mt-1 font-display text-xl text-bone">
@@ -154,53 +172,65 @@ export default function PirinGolfAlpineStudioPage() {
               </div>
 
               <span className="hidden border border-white/30 bg-black/30 px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-bone backdrop-blur-sm sm:block">
-                View Full Gallery ({images.length})
+                View Gallery
               </span>
             </div>
           </button>
         </div>
       </section>
 
-      {/* PROPERTY FACTS */}
+      {/* =========================================================
+          PROPERTY FACTS
+      ========================================================== */}
       <section className="px-6 py-12 lg:px-16 lg:py-16">
         <div className="mx-auto max-w-6xl border-y border-hairline/50">
           <div className="grid grid-cols-2 md:grid-cols-4">
             <div className="border-b border-hairline/50 px-5 py-6 md:border-b-0 md:border-r">
               <p className="font-mono text-[10px] uppercase tracking-widest text-steel-dim">
-                Property Size
+                Area
               </p>
-              <p className="mt-2 font-display text-xl text-bone">33 sq.m</p>
-              <p className="mt-1 font-mono text-[10px] text-steel-dim">Net Built Area</p>
+
+              <p className="mt-2 font-display text-xl text-bone">
+                33 m²
+              </p>
             </div>
 
             <div className="border-b border-hairline/50 px-5 py-6 md:border-b-0 md:border-r">
               <p className="font-mono text-[10px] uppercase tracking-widest text-steel-dim">
                 Floor
               </p>
-              <p className="mt-2 font-display text-xl text-bone">3rd of 6</p>
-              <p className="mt-1 font-mono text-[10px] text-steel-dim">Operational Modern Elevator</p>
+
+              <p className="mt-2 font-display text-xl text-bone">
+                3rd of 6
+              </p>
             </div>
 
             <div className="border-b border-hairline/50 px-5 py-6 md:border-b-0 md:border-r">
               <p className="font-mono text-[10px] uppercase tracking-widest text-steel-dim">
                 Construction
               </p>
-              <p className="mt-2 font-display text-xl text-bone">Brick · 2010</p>
-              <p className="mt-1 font-mono text-[10px] text-steel-dim">High-Efficiency Monolithic</p>
+
+              <p className="mt-2 font-display text-xl text-bone">
+                Brick · 2010
+              </p>
             </div>
 
             <div className="px-5 py-6">
               <p className="font-mono text-[10px] uppercase tracking-widest text-steel-dim">
-                Maintenance Fee
+                Maintenance
               </p>
-              <p className="mt-2 font-display text-xl text-bone">€200 / year</p>
-              <p className="mt-1 font-mono text-[10px] text-steel-dim">24/7 Security &amp; Infrastructure</p>
+
+              <p className="mt-2 font-display text-xl text-bone">
+                €200 / year
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* DESCRIPTION */}
+      {/* =========================================================
+          DESCRIPTION
+      ========================================================== */}
       <section className="px-6 pb-16 lg:px-16 lg:pb-20">
         <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1fr_320px]">
           <div className="max-w-3xl">
@@ -209,19 +239,24 @@ export default function PirinGolfAlpineStudioPage() {
             </p>
 
             <h2 className="mt-4 font-display text-3xl leading-tight text-bone md:text-4xl">
-              Turnkey alpine property inside Pirin Golf &amp; Thermal SPA Resort.
+              A compact mountain residence in a managed resort setting.
             </h2>
 
             <div className="mt-6 space-y-5 text-sm leading-7 text-steel">
               <p>
-                Offered as a Premium All-Inclusive Investor Package for €64,990.
-                This fully furnished 33 sq.m Alpine Studio sits on the 3rd floor of a
-                modern 6-storey building completed in 2010 with brick monolithic construction.
+                The apartment is located within Silver Mountain Resort in
+                Bansko. The complex offers a private swimming pool, controlled
+                access and security within a gated environment.
               </p>
 
               <p>
-                The property benefits from an annual maintenance fee of €200,
-                covering 24/7 security, infrastructure maintenance, and common areas.
+                The property is furnished and situated on the third floor of a
+                six-storey building constructed in 2010.
+              </p>
+
+              <p>
+                The annual maintenance fee is €200. The advertised price is
+                €59,990 and no VAT is charged.
               </p>
             </div>
           </div>
@@ -233,12 +268,13 @@ export default function PirinGolfAlpineStudioPage() {
 
             <ul className="mt-6 space-y-3">
               {[
-                "Fully Managed Investor Package",
-                "Thermal SPA & Resort Access",
-                "Modern Elevator Access",
-                "High-Efficiency Brick Build",
-                "24/7 Security & Infrastructure",
-                "Low €200/yr Maintenance Fee",
+                "Furnished",
+                "Swimming pool",
+                "Elevator",
+                "Security",
+                "Controlled access",
+                "Gated complex",
+                "Sanitary insulation",
               ].map((feature) => (
                 <li
                   key={feature}
@@ -253,7 +289,9 @@ export default function PirinGolfAlpineStudioPage() {
         </div>
       </section>
 
-      {/* GALLERY SECTION (6 CARDS IN 3-COLUMN GRID) */}
+      {/* =========================================================
+          FULL GALLERY
+      ========================================================== */}
       <section className="border-t border-hairline/50 bg-panel px-6 py-16 lg:px-16 lg:py-24">
         <div className="mx-auto max-w-6xl">
           <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
@@ -261,36 +299,51 @@ export default function PirinGolfAlpineStudioPage() {
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-brass">
                 Property Gallery
               </p>
+
               <h2 className="mt-4 font-display text-3xl text-bone md:text-4xl">
-                Inside Pirin Golf Resort.
+                Inside Silver Mountain.
               </h2>
             </div>
 
             <p className="font-mono text-xs uppercase tracking-widest text-steel-dim">
-              {images.length} HIGH-RESOLUTION PHOTOGRAPHS
+              {images.length} photographs
             </p>
           </div>
 
-          <div className="mt-10 grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          {/* Gallery grid */}
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {images.map((image, index) => (
               <button
                 key={image.src}
                 type="button"
                 onClick={() => setSelectedImage(index)}
-                className="group relative aspect-[4/3] w-full overflow-hidden bg-charcoal text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brass"
+                className={`group relative overflow-hidden bg-charcoal text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brass ${
+                  index === 0
+                    ? "sm:col-span-2 sm:row-span-2"
+                    : ""
+                }`}
               >
-                <img
-                  src={image.src}
-                  alt={image.alt}
-                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                />
+                <div
+                  className={`${
+                    index === 0
+                      ? "aspect-[4/3] sm:h-full"
+                      : "aspect-[4/3]"
+                  }`}
+                >
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                </div>
 
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
 
-                <div className="absolute bottom-0 left-0 right-0 p-4">
+                <div className="absolute bottom-0 left-0 right-0 p-5">
                   <div className="flex items-end justify-between gap-4">
                     <div>
                       <span className="mb-2 block h-px w-7 bg-brass transition-all duration-500 group-hover:w-11" />
+
                       <p className="font-display text-sm text-bone">
                         {image.alt}
                       </p>
@@ -307,22 +360,24 @@ export default function PirinGolfAlpineStudioPage() {
         </div>
       </section>
 
-      {/* CONTACT CTA */}
+      {/* =========================================================
+          CONTACT CTA
+      ========================================================== */}
       <section className="px-6 py-14 lg:px-16 lg:py-20">
         <div className="mx-auto max-w-6xl border-t border-hairline/60 pt-10">
           <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-brass">
-                Private Viewing &amp; Acquisition
+                Private Viewing
               </p>
 
               <h2 className="mt-3 font-display text-2xl text-bone md:text-3xl">
-                Interested in this Alpine Studio?
+                Interested in Silver Mountain?
               </h2>
 
               <p className="mt-3 max-w-xl text-sm leading-7 text-steel">
-                Contact our investment team for complete financial yield models, floor plans,
-                or to schedule a private viewing at Pirin Golf &amp; Thermal SPA Resort.
+                Contact our team for further property information, additional
+                documentation or to arrange a viewing in Bansko.
               </p>
             </div>
 
@@ -345,7 +400,9 @@ export default function PirinGolfAlpineStudioPage() {
         </div>
       </section>
 
-      {/* LIGHTBOX */}
+      {/* =========================================================
+          LIGHTBOX
+      ========================================================== */}
       {selectedImage !== null && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4 md:p-8"
@@ -354,6 +411,7 @@ export default function PirinGolfAlpineStudioPage() {
           aria-label="Property gallery"
           onClick={closeGallery}
         >
+          {/* Close */}
           <button
             type="button"
             aria-label="Close gallery"
@@ -363,6 +421,7 @@ export default function PirinGolfAlpineStudioPage() {
             ×
           </button>
 
+          {/* Previous */}
           <button
             type="button"
             aria-label="Previous image"
@@ -375,6 +434,7 @@ export default function PirinGolfAlpineStudioPage() {
             ‹
           </button>
 
+          {/* Image */}
           <img
             src={images[selectedImage].src}
             alt={images[selectedImage].alt}
@@ -382,6 +442,7 @@ export default function PirinGolfAlpineStudioPage() {
             className="max-h-[82vh] max-w-[88vw] object-contain"
           />
 
+          {/* Next */}
           <button
             type="button"
             aria-label="Next image"
@@ -394,6 +455,7 @@ export default function PirinGolfAlpineStudioPage() {
             ›
           </button>
 
+          {/* Bottom information */}
           <div className="absolute bottom-5 left-1/2 w-full max-w-xl -translate-x-1/2 px-6 text-center">
             <p className="font-display text-base text-bone">
               {images[selectedImage].alt}
