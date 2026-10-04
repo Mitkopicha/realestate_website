@@ -1,411 +1,116 @@
-"use client";
-
+// app/residential/page.tsx
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
-// Array with 6 valid image assets (res-2 removed completely)
-const images = [
+const residentialProperties = [
   {
-    src: "/residential/res-3.jpg",
-    alt: "Pirin Golf & Thermal SPA Resort exterior",
+    id: "RES-01",
+    title: "Alpine Studio in Pirin Golf & Thermal SPA Resort",
+    location: "Bansko · Blagoevgrad Province · Bulgaria",
+    price: "€64,990",
+    specs: "33 m² · 3rd Floor · Monolithic Brick (2010)",
+    status: "Available / Fully Managed",
+    image: "/residential/res-3.jpg",
+    slug: "silvermountain", // folder name in app/residential/
+    description:
+      "An all-inclusive investor package featuring a 33 sq.m fully furnished Alpine studio in a world-class golf and thermal SPA resort.",
   },
   {
-    src: "/residential/res-1.jpg",
-    alt: "Alpine Studio apartment living space",
-  },
-  {
-    src: "/residential/res-4.jpg",
-    alt: "Alpine Studio bathroom",
-  },
-  {
-    src: "/residential/res-5.jpg",
-    alt: "Alpine Studio main living area",
-  },
-  {
-    src: "/residential/res-6.jpg",
-    alt: "Alpine Studio bedroom zone",
-  },
-  {
-    src: "/residential/res-7.jpg",
-    alt: "Alpine Studio balcony view",
+    id: "RES-02",
+    title: "Boyana Luxury Residence",
+    location: "Boyana · Sofia · Bulgaria",
+    price: "€285,000",
+    specs: "110 m² · 2 Bed · Vitosha Mountain View",
+    status: "Available / Premium",
+    image: "/residential/livingspace.jpg", // add image in public/residential/
+    slug: "boyana", // folder name in app/residential/
+    description:
+      "A modern residential apartment situated at the foot of Vitosha Mountain in Sofia's prestigious Boyana district.",
   },
 ];
 
-export default function PirinGolfAlpineStudioPage() {
-  const [selectedImage, setSelectedImage] = useState<number | null>(null);
-
-  const closeGallery = () => setSelectedImage(null);
-
-  const previousImage = () => {
-    setSelectedImage((current) => {
-      if (current === null) return null;
-      return (current - 1 + images.length) % images.length;
-    });
-  };
-
-  const nextImage = () => {
-    setSelectedImage((current) => {
-      if (current === null) return null;
-      return (current + 1) % images.length;
-    });
-  };
-
-  useEffect(() => {
-    if (selectedImage === null) return;
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") closeGallery();
-      if (event.key === "ArrowLeft") previousImage();
-      if (event.key === "ArrowRight") nextImage();
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    const originalOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = originalOverflow;
-    };
-  }, [selectedImage]);
-
+export default function ResidentialPortfolioPage() {
   return (
-    <main className="min-h-screen bg-charcoal text-bone">
-      {/* HERO SECTION */}
-      <section className="px-6 pb-12 pt-12 md:pb-16 md:pt-16 lg:px-16 lg:pt-20">
-        <div className="mx-auto max-w-6xl">
-          <Link
-            href="/residential"
-            className="font-mono text-xs uppercase tracking-widest text-steel transition-colors hover:text-brass"
-          >
-            ← Residential Property
-          </Link>
-
-          <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_320px] lg:items-end">
-            <div>
-              <div className="flex flex-wrap items-center gap-3">
-                <span className="font-mono text-xs uppercase tracking-[0.2em] text-brass">
-                  PREMIUM PACKAGE · RES-01
-                </span>
-                <span className="border border-brass/40 bg-brass/10 px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-brass">
-                  Available / Fully Managed
-                </span>
-              </div>
-
-              <h1 className="mt-4 max-w-4xl font-display text-4xl leading-[1.02] text-bone md:text-5xl lg:text-6xl">
-                Alpine Studio in &quot;Pirin Golf &amp; Thermal SPA Resort&quot;
-              </h1>
-
-              <p className="mt-4 font-mono text-xs uppercase tracking-widest text-steel">
-                Bansko · Blagoevgrad Province · Bulgaria
-              </p>
-
-              <div className="mt-6 h-px w-12 bg-brass" />
-
-              <p className="mt-6 max-w-2xl text-sm leading-7 text-steel md:text-base">
-                An all-inclusive investor package featuring a 33 sq.m (net built area)
-                Alpine studio on the 3rd floor. Monolithic high-efficiency brick build (2010)
-                located in a world-class golf and thermal SPA resort.
-              </p>
-            </div>
-
-            <div className="border-l border-hairline/60 pl-6 lg:text-right">
-              <p className="font-mono text-[10px] uppercase tracking-widest text-steel-dim">
-                Package Price
-              </p>
-
-              <p className="mt-2 font-display text-3xl text-brass">
-                €64,990
-              </p>
-
-              <p className="mt-1 font-mono text-[10px] uppercase tracking-widest text-steel-dim">
-                All-Inclusive Investor Package · €1,969 / m²
-              </p>
-            </div>
-          </div>
+    <main className="min-h-screen bg-charcoal text-bone px-6 py-12 lg:px-16 lg:py-20">
+      <div className="mx-auto max-w-6xl">
+        {/* HEADER */}
+        <div className="border-b border-hairline/60 pb-8">
+          <span className="font-mono text-xs uppercase tracking-[0.2em] text-brass">
+            Portfolio Overview
+          </span>
+          <h1 className="mt-2 font-display text-4xl text-bone md:text-5xl">
+            Residential Properties
+          </h1>
+          <p className="mt-3 max-w-xl text-sm text-steel">
+            Explore active residential investment assets across Bulgaria.
+          </p>
         </div>
-      </section>
 
-      {/* PRIMARY FEATURED IMAGE */}
-      <section className="px-6 lg:px-16">
-        <div className="mx-auto max-w-6xl">
-          <button
-            type="button"
-            onClick={() => setSelectedImage(0)}
-            className="group relative block aspect-[16/9] w-full overflow-hidden bg-panel text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brass"
-          >
-            <img
-              src={images[0].src}
-              alt={images[0].alt}
-              className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
-            />
-
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/10" />
-
-            <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
-              <div>
-                <p className="font-mono text-[10px] uppercase tracking-widest text-white/70">
-                  Pirin Golf &amp; Thermal SPA Resort
-                </p>
-
-                <p className="mt-1 font-display text-xl text-bone">
-                  Bansko, Bulgaria
-                </p>
-              </div>
-
-              <span className="hidden border border-white/30 bg-black/30 px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-bone backdrop-blur-sm sm:block">
-                View Full Gallery ({images.length})
-              </span>
-            </div>
-          </button>
-        </div>
-      </section>
-
-      {/* PROPERTY FACTS */}
-      <section className="px-6 py-12 lg:px-16 lg:py-16">
-        <div className="mx-auto max-w-6xl border-y border-hairline/50">
-          <div className="grid grid-cols-2 md:grid-cols-4">
-            <div className="border-b border-hairline/50 px-5 py-6 md:border-b-0 md:border-r">
-              <p className="font-mono text-[10px] uppercase tracking-widest text-steel-dim">
-                Property Size
-              </p>
-              <p className="mt-2 font-display text-xl text-bone">33 sq.m</p>
-              <p className="mt-1 font-mono text-[10px] text-steel-dim">Net Built Area</p>
-            </div>
-
-            <div className="border-b border-hairline/50 px-5 py-6 md:border-b-0 md:border-r">
-              <p className="font-mono text-[10px] uppercase tracking-widest text-steel-dim">
-                Floor
-              </p>
-              <p className="mt-2 font-display text-xl text-bone">3rd of 6</p>
-              <p className="mt-1 font-mono text-[10px] text-steel-dim">Operational Modern Elevator</p>
-            </div>
-
-            <div className="border-b border-hairline/50 px-5 py-6 md:border-b-0 md:border-r">
-              <p className="font-mono text-[10px] uppercase tracking-widest text-steel-dim">
-                Construction
-              </p>
-              <p className="mt-2 font-display text-xl text-bone">Brick · 2010</p>
-              <p className="mt-1 font-mono text-[10px] text-steel-dim">High-Efficiency Monolithic</p>
-            </div>
-
-            <div className="px-5 py-6">
-              <p className="font-mono text-[10px] uppercase tracking-widest text-steel-dim">
-                Maintenance Fee
-              </p>
-              <p className="mt-2 font-display text-xl text-bone">€200 / year</p>
-              <p className="mt-1 font-mono text-[10px] text-steel-dim">24/7 Security &amp; Infrastructure</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* DESCRIPTION */}
-      <section className="px-6 pb-16 lg:px-16 lg:pb-20">
-        <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1fr_320px]">
-          <div className="max-w-3xl">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-brass">
-              Property Overview
-            </p>
-
-            <h2 className="mt-4 font-display text-3xl leading-tight text-bone md:text-4xl">
-              Turnkey alpine property inside Pirin Golf &amp; Thermal SPA Resort.
-            </h2>
-
-            <div className="mt-6 space-y-5 text-sm leading-7 text-steel">
-              <p>
-                Offered as a Premium All-Inclusive Investor Package for €64,990.
-                This fully furnished 33 sq.m Alpine Studio sits on the 3rd floor of a
-                modern 6-storey building completed in 2010 with brick monolithic construction.
-              </p>
-
-              <p>
-                The property benefits from an annual maintenance fee of €200,
-                covering 24/7 security, infrastructure maintenance, and common areas.
-              </p>
-            </div>
-          </div>
-
-          <aside className="h-fit border border-hairline/60 bg-panel p-7">
-            <p className="font-mono text-xs uppercase tracking-widest text-brass">
-              Key Features
-            </p>
-
-            <ul className="mt-6 space-y-3">
-              {[
-                "Fully Managed Investor Package",
-                "Thermal SPA & Resort Access",
-                "Modern Elevator Access",
-                "High-Efficiency Brick Build",
-                "24/7 Security & Infrastructure",
-                "Low €200/yr Maintenance Fee",
-              ].map((feature) => (
-                <li
-                  key={feature}
-                  className="flex items-center gap-3 border-b border-hairline/30 pb-3 text-sm text-steel"
-                >
-                  <span className="h-1 w-1 shrink-0 bg-brass" />
-                  {feature}
-                </li>
-              ))}
-            </ul>
-          </aside>
-        </div>
-      </section>
-
-      {/* GALLERY SECTION (6 CARDS IN 3-COLUMN GRID) */}
-      <section className="border-t border-hairline/50 bg-panel px-6 py-16 lg:px-16 lg:py-24">
-        <div className="mx-auto max-w-6xl">
-          <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
-            <div>
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-brass">
-                Property Gallery
-              </p>
-              <h2 className="mt-4 font-display text-3xl text-bone md:text-4xl">
-                Inside Pirin Golf Resort.
-              </h2>
-            </div>
-
-            <p className="font-mono text-xs uppercase tracking-widest text-steel-dim">
-              {images.length} HIGH-RESOLUTION PHOTOGRAPHS
-            </p>
-          </div>
-
-          <div className="mt-10 grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-            {images.map((image, index) => (
-              <button
-                key={image.src}
-                type="button"
-                onClick={() => setSelectedImage(index)}
-                className="group relative aspect-[4/3] w-full overflow-hidden bg-charcoal text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brass"
-              >
+        {/* LISTINGS STACK */}
+        <div className="mt-12 space-y-10">
+          {residentialProperties.map((property) => (
+            <div
+              key={property.id}
+              className="grid gap-8 border border-hairline/60 bg-panel p-6 lg:grid-cols-[400px_1fr] lg:p-8"
+            >
+              {/* IMAGE THUMBNAIL */}
+              <div className="relative aspect-[16/10] w-full overflow-hidden bg-charcoal">
                 <img
-                  src={image.src}
-                  alt={image.alt}
-                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  src={property.image}
+                  alt={property.title}
+                  className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
                 />
+              </div>
 
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80" />
-
-                <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <div className="flex items-end justify-between gap-4">
-                    <div>
-                      <span className="mb-2 block h-px w-7 bg-brass transition-all duration-500 group-hover:w-11" />
-                      <p className="font-display text-sm text-bone">
-                        {image.alt}
-                      </p>
-                    </div>
-
-                    <span className="font-mono text-[10px] text-white/60">
-                      {String(index + 1).padStart(2, "0")}
+              {/* DETAILS */}
+              <div className="flex flex-col justify-between">
+                <div>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <span className="font-mono text-xs uppercase tracking-[0.2em] text-brass">
+                      {property.id}
+                    </span>
+                    <span className="border border-brass/40 bg-brass/10 px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-brass">
+                      {property.status}
                     </span>
                   </div>
+
+                  <h2 className="mt-3 font-display text-2xl text-bone md:text-3xl">
+                    {property.title}
+                  </h2>
+
+                  <p className="mt-1 font-mono text-xs uppercase tracking-widest text-steel">
+                    {property.location}
+                  </p>
+
+                  <p className="mt-4 text-sm leading-6 text-steel">
+                    {property.description}
+                  </p>
                 </div>
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* CONTACT CTA */}
-      <section className="px-6 py-14 lg:px-16 lg:py-20">
-        <div className="mx-auto max-w-6xl border-t border-hairline/60 pt-10">
-          <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-            <div>
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-brass">
-                Private Viewing &amp; Acquisition
-              </p>
+                <div className="mt-6 flex flex-wrap items-end justify-between gap-4 border-t border-hairline/40 pt-4">
+                  <div>
+                    <p className="font-mono text-[10px] uppercase tracking-widest text-steel-dim">
+                      Listing Price
+                    </p>
+                    <p className="font-display text-2xl text-brass">
+                      {property.price}
+                    </p>
+                    <p className="font-mono text-[10px] text-steel-dim">
+                      {property.specs}
+                    </p>
+                  </div>
 
-              <h2 className="mt-3 font-display text-2xl text-bone md:text-3xl">
-                Interested in this Alpine Studio?
-              </h2>
-
-              <p className="mt-3 max-w-xl text-sm leading-7 text-steel">
-                Contact our investment team for complete financial yield models, floor plans,
-                or to schedule a private viewing at Pirin Golf &amp; Thermal SPA Resort.
-              </p>
+                  <Link
+                    href={`/residential/${property.slug}`}
+                    className="inline-flex items-center justify-center border border-brass bg-brass px-6 py-2.5 font-mono text-xs uppercase tracking-widest text-charcoal transition-opacity hover:opacity-90"
+                  >
+                    View Property Details →
+                  </Link>
+                </div>
+              </div>
             </div>
-
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <a
-                href="tel:+359876756855"
-                className="inline-flex items-center justify-center border border-brass px-7 py-3 font-mono text-xs uppercase tracking-widest text-brass transition-colors hover:bg-brass hover:text-charcoal"
-              >
-                +359 87 675 6855
-              </a>
-
-              <Link
-                href="/contact?asset=RES-01"
-                className="inline-flex items-center justify-center border border-brass bg-brass px-7 py-3 font-mono text-xs uppercase tracking-widest text-charcoal transition-opacity hover:opacity-90"
-              >
-                Make an Inquiry
-              </Link>
-            </div>
-          </div>
+          ))}
         </div>
-      </section>
-
-      {/* LIGHTBOX */}
-      {selectedImage !== null && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4 md:p-8"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Property gallery"
-          onClick={closeGallery}
-        >
-          <button
-            type="button"
-            aria-label="Close gallery"
-            onClick={closeGallery}
-            className="absolute right-5 top-5 z-20 flex h-10 w-10 items-center justify-center border border-white/20 text-2xl text-bone transition-colors hover:border-brass hover:text-brass"
-          >
-            ×
-          </button>
-
-          <button
-            type="button"
-            aria-label="Previous image"
-            onClick={(event) => {
-              event.stopPropagation();
-              previousImage();
-            }}
-            className="absolute left-2 top-1/2 z-20 flex h-14 w-14 -translate-y-1/2 items-center justify-center text-4xl text-bone transition-colors hover:text-brass md:left-6"
-          >
-            ‹
-          </button>
-
-          <img
-            src={images[selectedImage].src}
-            alt={images[selectedImage].alt}
-            onClick={(event) => event.stopPropagation()}
-            className="max-h-[82vh] max-w-[88vw] object-contain"
-          />
-
-          <button
-            type="button"
-            aria-label="Next image"
-            onClick={(event) => {
-              event.stopPropagation();
-              nextImage();
-            }}
-            className="absolute right-2 top-1/2 z-20 flex h-14 w-14 -translate-y-1/2 items-center justify-center text-4xl text-bone transition-colors hover:text-brass md:right-6"
-          >
-            ›
-          </button>
-
-          <div className="absolute bottom-5 left-1/2 w-full max-w-xl -translate-x-1/2 px-6 text-center">
-            <p className="font-display text-base text-bone">
-              {images[selectedImage].alt}
-            </p>
-
-            <p className="mt-1 font-mono text-[10px] uppercase tracking-widest text-steel">
-              {String(selectedImage + 1).padStart(2, "0")} /{" "}
-              {String(images.length).padStart(2, "0")}
-            </p>
-          </div>
-        </div>
-      )}
+      </div>
     </main>
   );
 }

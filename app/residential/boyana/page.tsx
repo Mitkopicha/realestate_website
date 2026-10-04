@@ -3,38 +3,47 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-// Array with 6 valid image assets
 const images = [
   {
-    src: "/residential/res-3.jpg",
-    alt: "Pirin Golf & Thermal SPA Resort exterior",
+    src: "/residential/garden.jpg",
+    alt: "Boyana Residence garden and exterior",
   },
   {
-    src: "/residential/res-1.jpg",
-    alt: "Alpine Studio apartment living space",
+    src: "/residential/livingspace.jpg",
+    alt: "Living room",
   },
   {
-    src: "/residential/res-4.jpg",
-    alt: "Alpine Studio bathroom",
+    src: "/residential/livingspace2.jpg",
+    alt: "Kitchen and dining area",
   },
   {
-    src: "/residential/res-5.jpg",
-    alt: "Alpine Studio main living area",
+    src: "/residential/room1.jpg",
+    alt: "First bedroom ",
   },
   {
-    src: "/residential/res-6.jpg",
-    alt: "Alpine Studio bedroom zone",
+    src: "/residential/room2.jpg",
+    alt: "Second bedroom with large windows",
   },
   {
-    src: "/residential/res-7.jpg",
-    alt: "Alpine Studio balcony view",
+    src: "/residential/room3.jpg",
+    alt: "Third bedroom and workspace",
+  },
+  {
+    src: "/residential/bathroom.jpg",
+    alt: "Bathroom",
+  },
+  {
+    src: "/residential/bathroom2.jpg",
+    alt: "Second bathroom",
   },
 ];
 
-export default function PirinGolfAlpineStudioPage() {
+export default function BoyanaVillaPage() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
-  const closeGallery = () => setSelectedImage(null);
+  const closeGallery = () => {
+    setSelectedImage(null);
+  };
 
   const previousImage = () => {
     setSelectedImage((current) => {
@@ -54,9 +63,15 @@ export default function PirinGolfAlpineStudioPage() {
     if (selectedImage === null) return;
 
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") closeGallery();
-      if (event.key === "ArrowLeft") previousImage();
-      if (event.key === "ArrowRight") nextImage();
+      if (event.key === "Escape") {
+        closeGallery();
+      }
+      if (event.key === "ArrowLeft") {
+        previousImage();
+      }
+      if (event.key === "ArrowRight") {
+        nextImage();
+      }
     };
 
     window.addEventListener("keydown", handleKeyDown);
@@ -71,7 +86,7 @@ export default function PirinGolfAlpineStudioPage() {
 
   return (
     <main className="min-h-screen bg-charcoal text-bone">
-      {/* HERO SECTION */}
+      {/* HERO */}
       <section className="px-6 pb-12 pt-12 md:pb-16 md:pt-16 lg:px-16 lg:pt-20">
         <div className="mx-auto max-w-6xl">
           <Link
@@ -83,29 +98,22 @@ export default function PirinGolfAlpineStudioPage() {
 
           <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_320px] lg:items-end">
             <div>
-              <div className="flex flex-wrap items-center gap-3">
-                <span className="font-mono text-xs uppercase tracking-[0.2em] text-brass">
-                  PREMIUM PACKAGE · RES-01
-                </span>
-                <span className="border border-brass/40 bg-brass/10 px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-brass">
-                  Available / Fully Managed
-                </span>
-              </div>
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-brass">
+                RES-02 · Premium Residential Villa
+              </p>
 
               <h1 className="mt-4 max-w-4xl font-display text-4xl leading-[1.02] text-bone md:text-5xl lg:text-6xl">
-                Alpine Studio in &quot;Pirin Golf &amp; Thermal SPA Resort&quot;
+                Boyana Residence Villa
               </h1>
 
               <p className="mt-4 font-mono text-xs uppercase tracking-widest text-steel">
-                Bansko · Blagoevgrad Province · Bulgaria
+                Boyana Residence · Sofia · Bulgaria
               </p>
 
               <div className="mt-6 h-px w-12 bg-brass" />
 
               <p className="mt-6 max-w-2xl text-sm leading-7 text-steel md:text-base">
-                An all-inclusive investor package featuring a 33 sq.m (net built area)
-                Alpine studio on the 3rd floor. Monolithic high-efficiency brick build (2010)
-                located in a world-class golf and thermal SPA resort.
+                An ultra-modern 4-bedroom gated design villa situated in Sofia's premier diplomatic district of Boyana. Features high-end Scandinavian interior finishes, panoramic glass walls, smart-home integration, and a private landscaped garden.
               </p>
             </div>
 
@@ -115,18 +123,18 @@ export default function PirinGolfAlpineStudioPage() {
               </p>
 
               <p className="mt-2 font-display text-3xl text-brass">
-                €64,990
+                €865,000
               </p>
 
               <p className="mt-1 font-mono text-[10px] uppercase tracking-widest text-steel-dim">
-                All-Inclusive Investor Package · €1,969 / m²
+                All-Inclusive Non-Resident Package
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* PRIMARY FEATURED IMAGE */}
+      {/* LARGE FEATURE IMAGE */}
       <section className="px-6 lg:px-16">
         <div className="mx-auto max-w-6xl">
           <button
@@ -145,16 +153,16 @@ export default function PirinGolfAlpineStudioPage() {
             <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
               <div>
                 <p className="font-mono text-[10px] uppercase tracking-widest text-white/70">
-                  Pirin Golf &amp; Thermal SPA Resort
+                  Boyana Residence Villa
                 </p>
 
                 <p className="mt-1 font-display text-xl text-bone">
-                  Bansko, Bulgaria
+                  Sofia, Bulgaria
                 </p>
               </div>
 
               <span className="hidden border border-white/30 bg-black/30 px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-bone backdrop-blur-sm sm:block">
-                View Full Gallery ({images.length})
+                View Gallery ({images.length})
               </span>
             </div>
           </button>
@@ -167,40 +175,48 @@ export default function PirinGolfAlpineStudioPage() {
           <div className="grid grid-cols-2 md:grid-cols-4">
             <div className="border-b border-hairline/50 px-5 py-6 md:border-b-0 md:border-r">
               <p className="font-mono text-[10px] uppercase tracking-widest text-steel-dim">
-                Property Size
+                GBA Area
               </p>
-              <p className="mt-2 font-display text-xl text-bone">33 sq.m</p>
-              <p className="mt-1 font-mono text-[10px] text-steel-dim">Net Built Area</p>
+
+              <p className="mt-2 font-display text-xl text-bone">
+                280 m²
+              </p>
             </div>
 
             <div className="border-b border-hairline/50 px-5 py-6 md:border-b-0 md:border-r">
               <p className="font-mono text-[10px] uppercase tracking-widest text-steel-dim">
-                Floor
+                Bedrooms
               </p>
-              <p className="mt-2 font-display text-xl text-bone">3rd of 6</p>
-              <p className="mt-1 font-mono text-[10px] text-steel-dim">Operational Modern Elevator</p>
+
+              <p className="mt-2 font-display text-xl text-bone">
+                4 Bedrooms
+              </p>
             </div>
 
             <div className="border-b border-hairline/50 px-5 py-6 md:border-b-0 md:border-r">
               <p className="font-mono text-[10px] uppercase tracking-widest text-steel-dim">
-                Construction
+                Location
               </p>
-              <p className="mt-2 font-display text-xl text-bone">Brick · 2010</p>
-              <p className="mt-1 font-mono text-[10px] text-steel-dim">High-Efficiency Monolithic</p>
+
+              <p className="mt-2 font-display text-xl text-bone">
+                Boyana Residence
+              </p>
             </div>
 
             <div className="px-5 py-6">
               <p className="font-mono text-[10px] uppercase tracking-widest text-steel-dim">
-                Maintenance Fee
+                Garden / Grounds
               </p>
-              <p className="mt-2 font-display text-xl text-bone">€200 / year</p>
-              <p className="mt-1 font-mono text-[10px] text-steel-dim">24/7 Security &amp; Infrastructure</p>
+
+              <p className="mt-2 font-display text-xl text-bone">
+                Private Landscaped
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* DESCRIPTION */}
+      {/* DESCRIPTION & NORDIC BENEFITS */}
       <section className="px-6 pb-16 lg:px-16 lg:pb-20">
         <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1fr_320px]">
           <div className="max-w-3xl">
@@ -209,20 +225,42 @@ export default function PirinGolfAlpineStudioPage() {
             </p>
 
             <h2 className="mt-4 font-display text-3xl leading-tight text-bone md:text-4xl">
-              Turnkey alpine property inside Pirin Golf &amp; Thermal SPA Resort.
+              Architectural luxury situated at the foot of Vitosha Mountain.
             </h2>
 
             <div className="mt-6 space-y-5 text-sm leading-7 text-steel">
               <p>
-                Offered as a Premium All-Inclusive Investor Package for €64,990.
-                This fully furnished 33 sq.m Alpine Studio sits on the 3rd floor of a
-                modern 6-storey building completed in 2010 with brick monolithic construction.
+                Situated in the most exclusive, high-security diplomatic district of Sofia (Boyana), beneath Vitosha Mountain. The villa features premium high-end Scandinavian-style interior finishes, floor-to-ceiling panoramic glass walls with seamless terrace access, smart-home automation readiness, luxury open-concept living zones, and private enclosed parking.
               </p>
 
-              <p>
-                The property benefits from an annual maintenance fee of €200,
-                covering 24/7 security, infrastructure maintenance, and common areas.
-              </p>
+              <div className="mt-8 border border-brass/40 bg-panel p-6">
+                <p className="font-mono text-xs uppercase tracking-[0.2em] text-brass">
+                  The Nordic Investment All-Inclusive Benefits
+                </p>
+
+                <p className="mt-2 text-xs leading-relaxed text-steel">
+                  Fully optimized for international buyers to bypass local bureaucracy, legal, and currency risks:
+                </p>
+
+                <ul className="mt-4 space-y-3 font-mono text-xs text-steel">
+                  <li className="flex items-start gap-2.5">
+                    <span className="mt-1.5 h-1 w-1 shrink-0 bg-brass" />
+                    <span><strong className="text-bone">Turn-Key Ownership:</strong> Full ownership transfer of the 280 m² design villa.</span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <span className="mt-1.5 h-1 w-1 shrink-0 bg-brass" />
+                    <span><strong className="text-bone">100% Tax & Notary Covered:</strong> Includes full closing representation by an independent English-speaking corporate attorney.</span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <span className="mt-1.5 h-1 w-1 shrink-0 bg-brass" />
+                    <span><strong className="text-bone">€2,000 Inspection Refund:</strong> Upon successful closing, your viewing stay expenses are credited back.</span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <span className="mt-1.5 h-1 w-1 shrink-0 bg-brass" />
+                    <span><strong className="text-bone">Escrow Protection:</strong> Formally managed under Western European bank escrow protocols.</span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
 
@@ -233,12 +271,14 @@ export default function PirinGolfAlpineStudioPage() {
 
             <ul className="mt-6 space-y-3">
               {[
-                "Fully Managed Investor Package",
-                "Thermal SPA & Resort Access",
-                "Modern Elevator Access",
-                "High-Efficiency Brick Build",
-                "24/7 Security & Infrastructure",
-                "Low €200/yr Maintenance Fee",
+                "4 Bedrooms",
+                "280 m² GBA",
+                "Scandinavian Interiors",
+                "Panoramic Glass Walls",
+                "Private Landscaped Garden",
+                "Gated High-Security Zone",
+                "Smart-Home Ready",
+                "Private Garage Parking",
               ].map((feature) => (
                 <li
                   key={feature}
@@ -253,7 +293,7 @@ export default function PirinGolfAlpineStudioPage() {
         </div>
       </section>
 
-      {/* GALLERY SECTION (6 CARDS IN 3-COLUMN GRID) */}
+      {/* FULL GALLERY */}
       <section className="border-t border-hairline/50 bg-panel px-6 py-16 lg:px-16 lg:py-24">
         <div className="mx-auto max-w-6xl">
           <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
@@ -261,36 +301,46 @@ export default function PirinGolfAlpineStudioPage() {
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-brass">
                 Property Gallery
               </p>
+
               <h2 className="mt-4 font-display text-3xl text-bone md:text-4xl">
-                Inside Pirin Golf Resort.
+                Inside Boyana Residence.
               </h2>
             </div>
 
             <p className="font-mono text-xs uppercase tracking-widest text-steel-dim">
-              {images.length} HIGH-RESOLUTION PHOTOGRAPHS
+              {images.length} photographs
             </p>
           </div>
 
-          <div className="mt-10 grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {images.map((image, index) => (
               <button
                 key={image.src}
                 type="button"
                 onClick={() => setSelectedImage(index)}
-                className="group relative aspect-[4/3] w-full overflow-hidden bg-charcoal text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brass"
+                className={`group relative overflow-hidden bg-charcoal text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brass ${
+                  index === 0 ? "sm:col-span-2 sm:row-span-2" : ""
+                }`}
               >
-                <img
-                  src={image.src}
-                  alt={image.alt}
-                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                />
+                <div
+                  className={`${
+                    index === 0 ? "aspect-[4/3] sm:h-full" : "aspect-[4/3]"
+                  }`}
+                >
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                </div>
 
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
 
-                <div className="absolute bottom-0 left-0 right-0 p-4">
+                <div className="absolute bottom-0 left-0 right-0 p-5">
                   <div className="flex items-end justify-between gap-4">
                     <div>
                       <span className="mb-2 block h-px w-7 bg-brass transition-all duration-500 group-hover:w-11" />
+
                       <p className="font-display text-sm text-bone">
                         {image.alt}
                       </p>
@@ -313,29 +363,28 @@ export default function PirinGolfAlpineStudioPage() {
           <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-brass">
-                Private Viewing &amp; Acquisition
+                Private Viewing
               </p>
 
               <h2 className="mt-3 font-display text-2xl text-bone md:text-3xl">
-                Interested in this Alpine Studio?
+                Interested in Boyana Residence Villa?
               </h2>
 
               <p className="mt-3 max-w-xl text-sm leading-7 text-steel">
-                Contact our investment team for complete financial yield models, floor plans,
-                or to schedule a private viewing at Pirin Golf &amp; Thermal SPA Resort.
+                Contact our team for further property information, Western European escrow details, or to arrange a private viewing in Boyana.
               </p>
             </div>
 
             <div className="flex flex-col gap-3 sm:flex-row">
               <a
-                href="tel:+359876756855"
+                href="tel:+359890304010"
                 className="inline-flex items-center justify-center border border-brass px-7 py-3 font-mono text-xs uppercase tracking-widest text-brass transition-colors hover:bg-brass hover:text-charcoal"
               >
-                +359 87 675 6855
+                +359 89 030 4010
               </a>
 
               <Link
-                href="/contact?asset=RES-01"
+                href="/contact?asset=RES-02"
                 className="inline-flex items-center justify-center border border-brass bg-brass px-7 py-3 font-mono text-xs uppercase tracking-widest text-charcoal transition-opacity hover:opacity-90"
               >
                 Make an Inquiry
@@ -355,17 +404,17 @@ export default function PirinGolfAlpineStudioPage() {
 
           <div className="mt-8 grid gap-6 sm:grid-cols-1 max-w-xl">
             <Link
-              href="/residential/boyana"
+              href="/residential"
               className="group border border-hairline/60 bg-panel p-6 transition-all hover:border-brass/60"
             >
               <span className="font-mono text-[10px] uppercase tracking-widest text-brass">
-                RES-02 · Sofia
+                RES-01 · Bansko
               </span>
               <h4 className="mt-2 font-display text-xl text-bone group-hover:text-brass">
-                Boyana Luxury Residence
+                Pirin Golf Alpine Studio
               </h4>
               <p className="mt-2 text-xs text-steel">
-                Foot-of-Vitosha Premium Residential Asset
+                Fully Furnished Studio in Pirin Golf & Country Club
               </p>
             </Link>
           </div>
@@ -381,6 +430,7 @@ export default function PirinGolfAlpineStudioPage() {
           aria-label="Property gallery"
           onClick={closeGallery}
         >
+          {/* Close */}
           <button
             type="button"
             aria-label="Close gallery"
@@ -390,6 +440,7 @@ export default function PirinGolfAlpineStudioPage() {
             ×
           </button>
 
+          {/* Previous */}
           <button
             type="button"
             aria-label="Previous image"
@@ -402,6 +453,7 @@ export default function PirinGolfAlpineStudioPage() {
             ‹
           </button>
 
+          {/* Image */}
           <img
             src={images[selectedImage].src}
             alt={images[selectedImage].alt}
@@ -409,6 +461,7 @@ export default function PirinGolfAlpineStudioPage() {
             className="max-h-[82vh] max-w-[88vw] object-contain"
           />
 
+          {/* Next */}
           <button
             type="button"
             aria-label="Next image"
@@ -421,6 +474,7 @@ export default function PirinGolfAlpineStudioPage() {
             ›
           </button>
 
+          {/* Bottom information */}
           <div className="absolute bottom-5 left-1/2 w-full max-w-xl -translate-x-1/2 px-6 text-center">
             <p className="font-display text-base text-bone">
               {images[selectedImage].alt}
