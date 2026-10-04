@@ -16,15 +16,15 @@ const residentialProperties = [
   },
   {
     id: "RES-02",
-    title: "Boyana Luxury Residence",
+    title: "Ultra-Modern 4-Bedroom Gated Villa in Boyana Residence",
     location: "Boyana · Sofia · Bulgaria",
-    price: "€285,000",
-    specs: "110 m² · 2 Bed · Vitosha Mountain View",
-    status: "Available / Premium",
-    image: "/residential/livingspace.jpg", // add image in public/residential/
-    slug: "boyana", // folder name in app/residential/
+    price: "€865,000",
+    specs: "280 m² GBA · 4 Bed · Private Landscaped Garden",
+    status: "Available / Premium Package",
+    image: "/residential/garden.jpg",
+    slug: "boyana",
     description:
-      "A modern residential apartment situated at the foot of Vitosha Mountain in Sofia's prestigious Boyana district.",
+      "An ultra-modern 4-bedroom gated villa featuring high-end Scandinavian interior finishes, floor-to-ceiling glass walls, and a private landscaped garden in Sofia's exclusive diplomatic district.",
   },
 ];
 
